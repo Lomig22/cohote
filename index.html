@@ -261,8 +261,17 @@ ul { list-style: none; }
   min-height: 100svh;
   display: flex; align-items: center;
   background-color: var(--nuit);
-  background-image: var(--motif-carreaux-nuit);
-  background-size: 24px 24px;
+  /* Photo : Camille La Brequa — Unsplash (licence Unsplash, usage libre) */
+  background-image:
+    var(--motif-carreaux-nuit),
+    linear-gradient(180deg, color-mix(in srgb, var(--nuit) 55%, transparent) 0, transparent 220px),
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--nuit) 94%, transparent) 0%,
+      color-mix(in srgb, var(--nuit) 82%, transparent) 42%,
+      color-mix(in srgb, var(--nuit) 40%, transparent) 100%),
+    url('assets/hero-maison-provence.jpg');
+  background-size: 24px 24px, 100% 100%, cover, cover;
+  background-position: 0 0, 0 0, center, center 40%;
   color: var(--creme);
   padding-top: calc(var(--bandeau-h) + var(--header-h) + clamp(40px, 6vw, 72px));
   padding-bottom: clamp(56px, 8vw, 96px);
@@ -276,15 +285,6 @@ ul { list-style: none; }
     radial-gradient(50% 60% at 5% 100%, color-mix(in srgb, var(--sauge) 30%, transparent), transparent 70%);
 }
 .hero .container { position: relative; }
-.hero__monogramme {
-  position: absolute; right: clamp(-40px, 2vw, 40px); top: 50%; transform: translateY(-50%);
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
-  font-size: clamp(260px, 30vw, 440px); line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 1px color-mix(in srgb, var(--sauge-clair) 45%, transparent);
-  pointer-events: none; user-select: none;
-}
-@media (max-width: 1024px) { .hero__monogramme { display: none; } }
 
 .hero__eyebrow { color: var(--or); margin-bottom: 26px; }
 
@@ -645,6 +645,16 @@ fieldset.field { border: 0; }
 
 @media (max-width: 768px) {
   body { font-size: 16px; }
+  .hero {
+    background-image:
+      var(--motif-carreaux-nuit),
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--nuit) 78%, transparent) 0%,
+        color-mix(in srgb, var(--nuit) 90%, transparent) 55%,
+        var(--nuit) 100%),
+      url('assets/hero-maison-provence-mobile.jpg');
+    background-position: 0 0, center, 60% top;
+  }
   .bandeau { font-size: 10.5px; letter-spacing: .08em; }
   .pourqui { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
@@ -749,7 +759,6 @@ fieldset.field { border: 0; }
   <!-- 2. HERO -->
   <section class="hero" id="accueil" aria-labelledby="hero-title">
     <div class="container">
-      <span class="hero__monogramme" aria-hidden="true">CA</span>
       <p class="eyebrow hero__eyebrow reveal">Conciergerie Airbnb · Aix-en-Provence &amp; alentours</p>
       <h1 class="hero__title reveal" id="hero-title">
         <span>Votre bien loué,</span>
